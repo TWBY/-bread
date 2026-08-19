@@ -30,12 +30,28 @@ const factData = [
   "高蛋白麵粉會比較有咬勁，適合做彈性較強的麵包。",
 ];
 
+const faqData = [
+  {
+    question: "麵包買回家後要怎麼保存？",
+    answer: "當天吃完口感最好。若需要保存，請放進密封袋並置於室溫；超過兩天建議冷凍，食用前再加熱即可。",
+  },
+  {
+    question: "冷凍麵包可以直接加熱嗎？",
+    answer: "可以。先在室溫放幾分鐘，再以烤箱或氣炸鍋低溫加熱，外皮會更酥、內部也更柔軟。",
+  },
+  {
+    question: "麵包中常見的過敏原有哪些？",
+    answer: "常見成分包含麩質、牛奶、蛋、奶油與堅果。若有食物過敏，購買前請先確認完整成分。",
+  },
+];
+
 const breadCards = document.getElementById("breadCards");
 const historyList = document.getElementById("historyList");
 const factList = document.getElementById("factList");
 const factsPanel = document.getElementById("factsPanel");
 const toggleFacts = document.getElementById("toggleFacts");
 const footerText = document.getElementById("footerText");
+const faqList = document.getElementById("faqList");
 
 function createBreadCards() {
   // 逐一建立每張麵包卡片，避免手動重複寫多段 HTML
@@ -73,6 +89,35 @@ function createFacts() {
   });
 }
 
+function createFaq() {
+  // 每個題目是一個可獨立展開的問答項目
+  faqData.forEach((item) => {
+    const box = document.createElement("article");
+    box.className = "faq-item";
+
+    const question = document.createElement("button");
+    question.className = "faq-question";
+    question.type = "button";
+    question.textContent = item.question;
+    question.setAttribute("aria-expanded", "false");
+
+    const answer = document.createElement("p");
+    answer.className = "faq-answer";
+    answer.textContent = item.answer;
+    answer.hidden = true;
+
+    question.addEventListener("click", () => {
+      const isOpen = question.getAttribute("aria-expanded") === "true";
+      question.setAttribute("aria-expanded", String(!isOpen));
+      answer.hidden = isOpen;
+    });
+
+    box.appendChild(question);
+    box.appendChild(answer);
+    faqList.appendChild(box);
+  });
+}
+
 function setFooterYear() {
   const now = new Date();
   footerText.textContent = `今天是 ${now.getFullYear()} 年 ${now.getMonth() + 1} 月 ${now.getDate()} 日，快來一起做一塊好麵包吧！麵包師傅的名字是 willy。`;
@@ -82,6 +127,7 @@ function init() {
   createBreadCards();
   createHistory();
   createFacts();
+  createFaq();
   setFooterYear();
 
   toggleFacts.addEventListener("click", () => {

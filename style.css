@@ -70,6 +70,63 @@ main {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
 }
 
+.faq-block {
+  background: #fffaf2;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin: 16px 0;
+  padding: 22px 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+.faq-tag {
+  color: var(--accent);
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-item {
+  border: 1px solid #efd8b9;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 0;
+  padding: 15px 16px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.faq-question::after {
+  content: "＋";
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.faq-question[aria-expanded="true"]::after {
+  content: "－";
+}
+
+.faq-answer {
+  margin: 0;
+  padding: 0 16px 15px;
+  color: #66472a;
+  line-height: 1.7;
+}
+
 .baker-profile {
   display: grid;
   grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.1fr);

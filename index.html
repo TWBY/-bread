@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>麵包的世界</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="tag">🍞 初學者入門小站</p>
+      <h1>介紹麵包的網站</h1>
+      <p class="lead">
+        一張頁面認識麵包，從原料、種類到烘焙小知識，快速了解這種日常食物的小宇宙。
+      </p>
+      <button id="toggleFacts" class="btn-primary">顯示麵包小知識</button>
+    </header>
+
+    <main>
+      <section class="baker-profile" aria-labelledby="bakerTitle">
+        <div class="baker-photo-wrap">
+          <img
+            class="baker-photo"
+            src="willy-baker.jpeg"
+            alt="麵包師傅 Willy 手持麥克風的照片"
+          />
+        </div>
+        <div class="baker-copy">
+          <p class="section-tag">本店麵包師傅</p>
+          <h2 id="bakerTitle">Willy</h2>
+          <p>
+            麵包師傅 Willy 相信，每一顆麵包都值得被耐心等待。從揉麵、發酵到出爐，用簡單的原料做出剛剛好的香氣與口感。
+          </p>
+        </div>
+      </section>
+
+      <section class="card-block">
+        <h2>常見麵包類型</h2>
+        <div id="breadCards" class="card-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="timeline">
+        <h2>麵包快速簡史</h2>
+        <ol id="historyList"></ol>
+      </section>
+
+      <section id="factsPanel" class="facts-panel" aria-live="polite" hidden>
+        <h2>超簡單麵包小知識</h2>
+        <ul id="factList"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p id="footerText"></p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
